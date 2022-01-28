@@ -19,7 +19,7 @@ from blackjack_logo import logo
 
 
 print(logo)
-def blackjack():
+def play_game():
     game_start = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
     if game_start == 'y':
       cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -53,13 +53,16 @@ def blackjack():
         print(f"Computer's first card: {computer[0]}")
         print(f"Your final hand: {new_user}, final score: {new_user_score}")
         print(f"Computer's final hand: {new_computer}, final score: {new_computer_score}")
-        if 21 < new_user_score > new_computer_score :
-          print("You went over. You lose 😭")
-        elif 21 < new_computer_score > new_user_score:
-          print("You Win 🙂")
-        elif new_computer_score == new_user_score:
-          print("It's a tie")
+
+        def compare():
+          if 21 < new_user_score > new_computer_score :
+            return "You went over. You lose 😭"
+          elif 21 < new_computer_score > new_user_score:
+            return "You Win 🙂"
+          elif new_computer_score == new_user_score:
+            return "It's a tie"
+        compare()
 
     if game_start == 'n':
-      print("Restart Game")
-blackjack()
+      return "Restart Game"
+play_game()
